@@ -1,13 +1,17 @@
-package com.example.demo.entity;
+package com.example.demo.entity.ecommerce;
 
+import com.example.demo.entity.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "employee")
+@Table(name = "product")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -39,5 +43,20 @@ public class Product extends BaseEntity<Long> {
 
   @Enumerated(EnumType.STRING)
   private Status status;
+
+  @ManyToMany(cascade = {
+          CascadeType.PERSIST,
+          CascadeType.MERGE
+  })
+  @JoinTable(
+          name = "product_category",
+          joinColumns = @JoinColumn(name = "product_id"),
+          inverseJoinColumns = @JoinColumn(name = "category_id")
+  )
+  private List<Category> categories = new ArrayList<>();
+
+  public void addCategory(Category category) {
+    categories.add(category);
+  }
 
 }

@@ -1,5 +1,6 @@
-package com.example.demo.entity;
+package com.example.demo.entity.ecommerce;
 
+import com.example.demo.entity.base.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -16,13 +17,13 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Voucher extends BaseEntity<Long>{
+public class Voucher extends BaseEntity<Long> {
   public enum Type{
     PERCENT, FIXED_AMOUNT
   }
 
   public enum Status {
-   ACTIVE, EXPRIED, DISABLES
+   ACTIVE, EXPIRED, DISABLES
   }
   @Column(name = "code")
   private String code;
@@ -38,7 +39,7 @@ public class Voucher extends BaseEntity<Long>{
   private Date startDate;
 
   @Column(name = "end_date")
-  private Date rndDate;
+  private Date endDate;
 
   @Column(name = "min_spend")
   private Date minSpend;

@@ -1,17 +1,16 @@
-package com.example.demo.entity;
+package com.example.demo.entity.ecommerce;
 
+import com.example.demo.entity.base.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Comment;
 
-@MappedSuperclass
 @Getter
 @Setter
 @NoArgsConstructor
-public class OrderItem extends BaseEntity<Long>{
+public class OrderItem extends BaseEntity<Long> {
 
   private Long quantity;
 

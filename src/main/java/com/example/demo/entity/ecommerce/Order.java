@@ -1,5 +1,6 @@
-package com.example.demo.entity;
+package com.example.demo.entity.ecommerce;
 
+import com.example.demo.entity.base.BaseEntity;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order extends BaseEntity<Long>{
+public class Order extends BaseEntity<Long> {
   @AllArgsConstructor
   public enum Status{
     DANG_CHO_XU_LY("đang chờ xử lý"), DA_XU_LY("đã xử lý"),
